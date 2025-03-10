@@ -22,6 +22,8 @@ project/
 │   │   └── logger.js
 │   ├── database/           // Database connection setup
 │   │   └── connect.js
+├── __test__
+│   │   └──...test.js
 ├── package.json            // Project dependencies and scripts
 ├── .package-lock.json                    // Environment variables
 ├── .gitignore              // Git ignore file
