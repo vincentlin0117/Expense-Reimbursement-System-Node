@@ -6,6 +6,7 @@ const HTTP_PORT = 8000
 
 const app = express()
 
+app.use(express.json());
 app.use('/', userController);
 app.use('/', ticketController);
 

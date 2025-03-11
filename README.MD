@@ -12,12 +12,9 @@ project/
 │   ├── services/           // Contains core business logic
 │   │   ├── ticketService.js
 │   │   └── userService.js
-│   ├── models/             // interacting with db
+│   ├── Repository/             // interacting with db
 │   │   ├── userModel.js
 │   │   └── ticketModel.js
-│   ├── Entities/        // objects
-│   │   ├── user.js
-│   │   └── ticket.js
 │   ├── utils/              
 │   │   └── logger.js
 │   ├── database/           // Database connection setup
@@ -44,3 +41,15 @@ project/
 - type
 - amount
 - status
+
+## userDOA methods
+- getUserByNameAndPassword: return userObj
+- createUser - return t/f
+
+## user service
+- findUserByNameAndPassword - return userObj/null
+- createUser - return userObj/null
+
+## User Features
+- login in at /login
+- register/create account at /register
