@@ -61,3 +61,7 @@
 2025-03-12T18:47:04.281Z [info]: Server is listening on http://localhost:8000
 2025-03-12T18:47:06.390Z [info]: [POST]: /ticket
 2025-03-12T18:47:49.146Z [info]: [POST]: /ticket
+2025-03-12T20:03:56.296Z [info]: Server is listening on http://localhost:8000
+2025-03-12T20:04:18.369Z [info]: [GET]: /login?password=p@ssw0rd!
+2025-03-12T20:04:46.026Z [info]: [GET]: /login?email=john.doe@example.com&password=p@ssw0rd!
+2025-03-12T20:05:16.859Z [info]: [POST]: /login?password=p@ssw0rd!

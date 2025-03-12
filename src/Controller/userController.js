@@ -1,8 +1,6 @@
-const express = require('express')
-const userService = require('../Service/userService')
-const userController = express.Router()
+const userService = require('../Service/userService');
 
-userController.get('/login',async (req,res)=>{
+const login = async (req,res)=>{
 
     const {email,password} = req.query;
     if (!email || !password){
@@ -14,10 +12,9 @@ userController.get('/login',async (req,res)=>{
     }else{
         res.status(400).json({message: 'Login failed. Please check your email and password, and try again.'})
     }
-})
+}
 
-userController.post('/register',async (req,res)=>{
-
+const register = async (req,res)=>{
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!req.body.firstname || !req.body.lastname || !emailRegex.test(req.body.email)  || !req.body.password || !req.body.role){
         return res.status(400).json({message: 'Invalid firstname, lastname, password, email or role.'})
@@ -28,8 +25,8 @@ userController.post('/register',async (req,res)=>{
     }else{
         res.status(400).json({message:"Failed to create user"})
     }
-})
+}
 
 module.exports = {
-    userController
+    login, register
 }
