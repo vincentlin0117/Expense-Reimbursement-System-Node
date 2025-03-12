@@ -1,10 +1,6 @@
 const express = require('express')
 const userService = require('../Service/userService')
 const userController = express.Router()
-const logger = require('../Utils/logger')
-userController.get('/user',(req,res) =>{
-    res.status(200).json({message: "You got it!"})
-}) 
 
 userController.get('/login',async (req,res)=>{
 
