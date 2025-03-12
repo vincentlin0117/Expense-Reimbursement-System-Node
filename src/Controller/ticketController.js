@@ -1,15 +1,32 @@
 const ticketService = require('../Service/ticketService')
+const joi = require('joi')
 
 const submitTicket = async (req,res)=>{
-    if(!req.body.userId || !req.body.type){
-        return res.status(400).json({message: "Invalid resolver ID, user ID, or ticket type"})
+    const ticketSchema = joi.object({
+        userId: joi.string().required(),
+        description: joi.string().required(),
+        type: joi.string().required(),
+        amount: joi.number().min(0).required()
+    })
+
+    const {error, value} = ticketSchema.validate(req.body);
+
+    if(error){
+        const messages = []
+
+        error.details.forEach(detail =>{
+            const cleanMsg = detail.message.replace(/"/g,'')
+            messages.push(cleanMsg)
+        })
+
+        return res.status(400).json({message:messages})
     }
-    const ticket = await ticketService.createTicket(req.body)
+    const ticket = await ticketService.createTicket(value)
     
-    if(ticket){
-        res.status(201).json({message:"Ticket created",ticket:ticket})
+    if(ticket.success){
+        res.status(201).json({message:"Ticket created",ticket:ticket.ticket})
     }else{
-        res.status(400).json({message:"Failed to create ticket. Please check your inputs."})
+        res.status(400).json({message:ticket.message})
     }
 }
 

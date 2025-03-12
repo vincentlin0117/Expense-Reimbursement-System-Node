@@ -1,10 +1,7 @@
-const {DynamoDBClient} = require('@aws-sdk/client-dynamodb')
-const {DynamoDBDocumentClient,GetCommand,PutCommand,DeleteCommand,ScanCommand} = require('@aws-sdk/lib-dynamodb')
+const {GetCommand,PutCommand,DeleteCommand,ScanCommand} = require('@aws-sdk/lib-dynamodb')
 const { logger } = require('../Utils/logger')
 
-const client = new DynamoDBClient({region:'us-east-1'})
-
-const documentClient = DynamoDBDocumentClient.from(client)
+const {documentClient} = require('../Database/database')
 
 async function getAllUser(){
     const command = new ScanCommand({
@@ -49,6 +46,22 @@ async function getUserByEmailAndPassword(email,password) {
         return null
     }
 }
+async function getUserByEmail(email,password) {
+    const command = new ScanCommand({
+        TableName: 'User',
+        FilterExpression: "email = :email",
+        ExpressionAttributeValues:{
+            ":email": email
+        }
+    })
+
+    try{
+        return (await documentClient.send(command)).Items?.[0]
+    }catch(err){
+        logger.error(err)
+        return null
+    }
+}
 
 async function createUser(user) {
     const command = new PutCommand({
@@ -80,4 +93,4 @@ async function deleteUser(id) {
     }
 }
 
-module.exports = {documentClient,getAllUser, getUserById, createUser, deleteUser, getUserByEmailAndPassword}
+module.exports = {documentClient,getAllUser, getUserById, createUser, deleteUser, getUserByEmail, getUserByEmailAndPassword}

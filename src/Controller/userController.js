@@ -1,29 +1,70 @@
 const userService = require('../Service/userService');
+const joi = require('joi')
 
 const login = async (req,res)=>{
+    const loginSchema = joi.object({
+        email: joi.string().email().required(),
+        password: joi.string().min(8).required()
+    })
 
-    const {email,password} = req.query;
-    if (!email || !password){
-        return res.status(400).json({message: 'Invalid username or password'});
+    const {error,value} = loginSchema.validate(req.body,{abortEarly:false})
+
+    if (error){
+        const messages = [];
+
+        error.details.forEach(detail =>{
+            const cleanMsg = detail.message.replace(/"/g,'')
+            messages.push(cleanMsg)
+        })
+
+        return res.status(400).json({message:messages});
     }
-    const user = await userService.findUserByEmailAndPassword(email, password)
-    if(user){
-        res.status(200).json(user)
+
+    const user = await userService.findUserByEmailAndPassword(value)
+
+    if(user.success){
+        res.status(200).json(user.user)
     }else{
-        res.status(400).json({message: 'Login failed. Please check your email and password, and try again.'})
+        res.status(400).json({message: user.message})
     }
 }
 
 const register = async (req,res)=>{
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!req.body.firstname || !req.body.lastname || !emailRegex.test(req.body.email)  || !req.body.password || !req.body.role){
-        return res.status(400).json({message: 'Invalid firstname, lastname, password, email or role.'})
+    const userSchema = joi.object({
+        firstname: joi.string().required(),
+        middlename: joi.string().optional(), // Optional field
+        lastname: joi.string().required(),
+        email: joi.string().email().required(),
+        password: joi.string().min(8).required(),
+        address: joi.object({
+            street: joi.string().required(),
+            city: joi.string().required(),
+            state: joi.string().length(2).uppercase().required(),
+            postalCode: joi.string().pattern(/^[0-9]{5}(-[0-9]{4})?$/).required(),
+            country: joi.string().required()
+        }).optional(),
+        picture: joi.string().uri().optional(), // Optional field
+        role: joi.string().required()
+    })
+
+    const {error, value} = userSchema.validate(req.body)
+
+    if(error){
+        const messages = [];
+
+        error.details.forEach(detail =>{
+            const cleanMsg = detail.message.replace(/"/g,'')
+            messages.push(cleanMsg)
+        })
+
+        return res.status(400).json({message:messages});
     }
-    const user = await userService.createUser(req.body)
-    if(user){
-        res.status(201).json({message:"User created",user:user})
+
+    const user = await userService.createUser(value)
+    if(user.success){
+        res.status(201).json({message:"User created",user:user.user})
     }else{
-        res.status(400).json({message:"Failed to create user"})
+        res.status(400).json({message:user.message})
     }
 }
 

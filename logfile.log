@@ -62,6 +62,51 @@
 2025-03-12T18:47:06.390Z [info]: [POST]: /ticket
 2025-03-12T18:47:49.146Z [info]: [POST]: /ticket
 2025-03-12T20:03:56.296Z [info]: Server is listening on http://localhost:8000
-2025-03-12T20:04:18.369Z [info]: [GET]: /login?password=p@ssw0rd!
-2025-03-12T20:04:46.026Z [info]: [GET]: /login?email=john.doe@example.com&password=p@ssw0rd!
-2025-03-12T20:05:16.859Z [info]: [POST]: /login?password=p@ssw0rd!
+2025-03-12T20:28:09.485Z [info]: Server is listening on http://localhost:8000
+2025-03-12T20:32:41.175Z [info]: Server is listening on http://localhost:8000
+2025-03-12T20:39:09.754Z [info]: Server is listening on http://localhost:8000
+2025-03-12T20:40:17.549Z [info]: Server is listening on http://localhost:8000
+2025-03-12T20:51:01.746Z [info]: Server is listening on http://localhost:8000
+2025-03-12T20:51:05.178Z [info]: [POST]: /login
+2025-03-12T20:51:05.382Z [error]: Invalid FilterExpression: An expression attribute value used in expression is not defined; attribute value: :password
+2025-03-12T20:52:34.187Z [info]: Server is listening on http://localhost:8000
+2025-03-12T20:52:36.444Z [info]: [POST]: /login
+2025-03-12T20:52:42.889Z [info]: [POST]: /login
+2025-03-12T20:52:47.273Z [info]: [POST]: /login
+2025-03-12T20:52:49.841Z [info]: [POST]: /login
+2025-03-12T20:57:08.911Z [info]: [POST]: /login
+2025-03-12T20:58:21.545Z [info]: [POST]: /login
+2025-03-12T20:59:49.755Z [info]: [POST]: /login
+2025-03-12T21:09:35.210Z [info]: Server is listening on http://localhost:8000
+2025-03-12T21:09:41.782Z [info]: [POST]: /login
+2025-03-12T21:10:16.521Z [info]: Server is listening on http://localhost:8000
+2025-03-12T21:10:20.664Z [info]: [POST]: /login
+2025-03-12T21:10:36.586Z [info]: Server is listening on http://localhost:8000
+2025-03-12T21:10:38.430Z [info]: [POST]: /login
+2025-03-12T21:10:38.433Z [error]: documentClient.send is not a function
+2025-03-12T21:11:35.464Z [info]: Server is listening on http://localhost:8000
+2025-03-12T21:11:38.222Z [info]: [POST]: /login
+2025-03-12T21:11:49.454Z [info]: [POST]: /login
+2025-03-12T21:13:04.637Z [info]: Server is listening on http://localhost:8000
+2025-03-12T21:49:35.164Z [info]: Server is listening on http://localhost:8000
+2025-03-12T21:49:41.890Z [info]: [POST]: /register
+2025-03-12T21:50:31.251Z [info]: Server is listening on http://localhost:8000
+2025-03-12T21:50:34.635Z [info]: [POST]: /register
+2025-03-12T21:50:43.774Z [info]: [POST]: /register
+2025-03-12T21:50:46.586Z [info]: [POST]: /register
+2025-03-12T21:50:53.855Z [info]: [POST]: /register
+2025-03-12T21:51:23.589Z [info]: [POST]: /register
+2025-03-12T21:55:02.088Z [info]: Server is listening on http://localhost:8000
+2025-03-12T21:55:05.258Z [info]: [POST]: /register
+2025-03-12T21:55:11.084Z [info]: [POST]: /login
+2025-03-12T21:55:15.197Z [info]: [POST]: /login
+2025-03-12T21:55:20.693Z [info]: [POST]: /login
+2025-03-12T21:55:37.545Z [info]: [POST]: /login
+2025-03-12T21:55:42.936Z [info]: [POST]: /login
+2025-03-12T21:55:54.706Z [info]: [POST]: /ticket
+2025-03-12T21:56:01.803Z [info]: [POST]: /ticket
+2025-03-12T21:57:51.121Z [info]: Server is listening on http://localhost:8000
+2025-03-12T21:57:53.142Z [info]: [POST]: /ticket
+2025-03-12T21:58:43.418Z [info]: Server is listening on http://localhost:8000
+2025-03-12T21:58:45.095Z [info]: [POST]: /ticket
+2025-03-12T21:58:49.123Z [info]: [GET]: /ticket

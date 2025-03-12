@@ -3,7 +3,7 @@ const userService = require('./userService')
 const {v4:uuidv4} = require('uuid')
 
 async function createTicket({userId,description,type,amount}) {
-    if(await userService.findUserById(userId)){
+    if((await userService.findUserById(userId)).success){
         const ticket = {
             ticketId: uuidv4(),
             userId: userId,
@@ -16,12 +16,12 @@ async function createTicket({userId,description,type,amount}) {
         const result = await ticketDAO.createTicket(ticket)
 
         if(result){
-            return ticket
+            return {success:true,ticket:ticket}
         }else{
-            return null
+            return {success:false, message:'Failed to create ticket'}
         }
     }else{
-        return null;
+        return {success:false, message:'User doesnt exist'};
     }
     
 }
