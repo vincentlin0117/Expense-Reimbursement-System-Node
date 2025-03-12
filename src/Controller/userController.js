@@ -7,13 +7,12 @@ userController.get('/user',(req,res) =>{
 }) 
 
 userController.get('/login',async (req,res)=>{
-    logger.info(`[${req.method}]: ${req.url}`)
 
     const {email,password} = req.query;
     if (!email || !password){
         return res.status(400).json({message: 'Please enter a valid Username and password.'});
     }
-    const user = await userService.findUserByNameAndPassword(email, password)
+    const user = await userService.findUserByEmailAndPassword(email, password)
     if(user){
         res.status(200).json(user)
     }else{
@@ -22,7 +21,6 @@ userController.get('/login',async (req,res)=>{
 })
 
 userController.post('/register',async (req,res)=>{
-    logger.info(`[${req.method}]: ${req.url}`)
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!req.body.firstname || !req.body.lastname || !emailRegex.test(req.body.email)  || !req.body.password || !req.body.role){

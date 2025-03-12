@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "node ./src/app.js"
+    "test": "jest --coverage __test__/*",
+    "start": "node ./src/app.js"
   },
   "author": "",
   "license": "ISC",

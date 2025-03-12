@@ -13,7 +13,7 @@ async function getAllUser(){
     try{
         return (await documentClient.send(command)).Items 
     }catch(err){
-        console.log(err)
+        logger.error(err)
         return null
     }
 }
@@ -26,24 +26,25 @@ async function getUserById(id){
     try{
         return (await documentClient.send(command)).Item
     }catch(err){
-        console.log(err)
+        logger.error(err)
         return null
     }
 }
-async function getUserByUsernameAndPassword(username,password) {
+
+async function getUserByEmailAndPassword(email,password) {
     const command = new ScanCommand({
         TableName: 'User',
         FilterExpression: "email = :email AND password = :password",
         ExpressionAttributeValues:{
-            ":email": username,
+            ":email": email,
             ":password": password
         }
     })
 
     try{
-        return (await documentClient.send(command)).Items[0]
+        return (await documentClient.send(command)).Items?.[0]
     }catch(err){
-        console.log(err)
+        logger.error(err)
         return null
     }
 }
@@ -57,7 +58,7 @@ async function createUser(user) {
         await documentClient.send(command);
         return true;
     }catch(err){
-        console.log(err)
+        logger.error(err)
         return false;
     }
 }
@@ -71,9 +72,9 @@ async function deleteUser(id) {
         await documentClient.send(command)
         return true;
     }catch(err){
-        console.log(err)
+        logger.error(err)
         return false;
     }
 }
 
-module.exports = {getAllUser, getUserById, createUser, deleteUser, getUserByUsernameAndPassword}
+module.exports = {documentClient,getAllUser, getUserById, createUser, deleteUser, getUserByEmailAndPassword}
