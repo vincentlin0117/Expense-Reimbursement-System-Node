@@ -3,7 +3,7 @@ const {DynamoDBDocumentClient,GetCommand,PutCommand,DeleteCommand,ScanCommand} =
 
 const client = new DynamoDBClient({region:'us-east-1'})
 
-const documentClient = new DynamoDBDocumentClient.from(client)
+const documentClient = DynamoDBDocumentClient.from(client)
 
 async function createTicket(ticket) {
     const command = new PutCommand({
@@ -12,10 +12,10 @@ async function createTicket(ticket) {
     })
     try{
         await documentClient.send(command)
-        return ticket;
+        return true;
     }catch(err){
         console.log(err)
-        return null;
+        return false;
     }
 }
 

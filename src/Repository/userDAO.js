@@ -18,11 +18,12 @@ async function getAllUser(){
     }
 }
 
-async function getUserById(id){
+async function getUserById(userId){
     const command = new GetCommand({
         TableName: 'User',
-        Key: {id}
+        Key: {userId}
     })
+
     try{
         return (await documentClient.send(command)).Item
     }catch(err){
@@ -54,6 +55,7 @@ async function createUser(user) {
         TableName: 'User',
         Item: user
     })
+
     try{
         await documentClient.send(command);
         return true;
@@ -68,6 +70,7 @@ async function deleteUser(id) {
         TableName: 'User',
         Key: {id}
     })
+    
     try{
         await documentClient.send(command)
         return true;

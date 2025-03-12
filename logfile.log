@@ -40,3 +40,24 @@
 2025-03-12T17:53:57.592Z [error]: Testing error
 2025-03-12T17:55:01.076Z [error]: Testing error
 2025-03-12T17:55:01.085Z [error]: undefined
+2025-03-12T18:38:45.249Z [info]: Server is listening on http://localhost:8000
+2025-03-12T18:38:52.381Z [info]: [POST]: /ticket
+2025-03-12T18:41:17.934Z [info]: Server is listening on http://localhost:8000
+2025-03-12T18:41:20.117Z [info]: [POST]: /ticket
+2025-03-12T18:41:35.164Z [info]: [GET]: /ticket
+2025-03-12T18:41:52.859Z [info]: [GET]: /ticket
+2025-03-12T18:42:12.814Z [info]: [GET]: /
+2025-03-12T18:42:20.151Z [info]: [GET]: /ticket
+2025-03-12T18:42:49.515Z [info]: Server is listening on http://localhost:8000
+2025-03-12T18:43:33.717Z [info]: Server is listening on http://localhost:8000
+2025-03-12T18:43:35.389Z [info]: [GET]: /ticket
+2025-03-12T18:43:46.151Z [info]: [POST]: /ticket
+2025-03-12T18:45:27.931Z [info]: Server is listening on http://localhost:8000
+2025-03-12T18:45:30.899Z [info]: [POST]: /ticket
+2025-03-12T18:45:31.088Z [error]: The provided key element does not match the schema
+2025-03-12T18:45:48.320Z [info]: Server is listening on http://localhost:8000
+2025-03-12T18:45:50.797Z [info]: [POST]: /ticket
+2025-03-12T18:45:50.978Z [error]: The provided key element does not match the schema
+2025-03-12T18:47:04.281Z [info]: Server is listening on http://localhost:8000
+2025-03-12T18:47:06.390Z [info]: [POST]: /ticket
+2025-03-12T18:47:49.146Z [info]: [POST]: /ticket

@@ -20,4 +20,13 @@ async function createUser({firstname, middlename, lastname, email, password, add
     }
 }
 
-module.exports = {findUserByEmailAndPassword,createUser}
+async function findUserById(userId) {
+    const user = await userDAO.getUserById(userId)
+    if(user){
+        return user
+    }else{
+        return null;
+    }
+}
+
+module.exports = {findUserByEmailAndPassword,createUser, findUserById}

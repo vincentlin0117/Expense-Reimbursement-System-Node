@@ -46,10 +46,19 @@ project/
 - getUserByNameAndPassword: return userObj
 - createUser - return t/f
 
-## user service
+## userService methods
 - findUserByNameAndPassword - return userObj/null
 - createUser - return userObj/null
 
 ## User Features
 - login in at /login
 - register/create account at /register
+
+## ticketDAO methods
+- createTicket
+
+## ticketService methods
+- createTicket
+
+## Ticket features
+- submit ticket

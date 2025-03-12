@@ -13,6 +13,7 @@ app.use('/', ticketController);
 
 function loggerMiddleware(req,res,next){
     logger.info(`[${req.method}]: ${req.url}`)
+    next();
 }
 
 app.listen(HTTP_PORT,()=>{
