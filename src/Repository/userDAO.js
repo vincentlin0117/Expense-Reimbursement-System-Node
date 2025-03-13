@@ -93,4 +93,4 @@ async function deleteUser(id) {
     }
 }
 
-module.exports = {documentClient,getAllUser, getUserById, createUser, deleteUser, getUserByEmail, getUserByEmailAndPassword}
+module.exports = {getAllUser, getUserById, createUser, deleteUser, getUserByEmail, getUserByEmailAndPassword}

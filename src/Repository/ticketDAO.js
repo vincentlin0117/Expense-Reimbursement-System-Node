@@ -1,6 +1,7 @@
 const {GetCommand,PutCommand,DeleteCommand,ScanCommand} = require('@aws-sdk/lib-dynamodb')
 
-const {documentClient} = require('../Database/database')
+const {documentClient} = require('../Database/database');
+const { logger } = require('../Utils/logger');
 
 async function createTicket(ticket) {
     const command = new PutCommand({
@@ -11,7 +12,7 @@ async function createTicket(ticket) {
         await documentClient.send(command)
         return true;
     }catch(err){
-        console.log(err)
+        logger.error(err)
         return false;
     }
 }
@@ -27,7 +28,7 @@ async function  getAllTicketByUser(userId) {
     try{
         return (await documentClient.send(command)).Items
     }catch(err){
-        console.log(err)
+        logger.error(err)
         return null
     }
 }
@@ -38,7 +39,7 @@ async function getAllTicket() {
     try{
         return (await documentClient.send(command)).Items
     }catch(err){
-        console.log(err)
+        logger.error(err)
         return null
     }
 }
