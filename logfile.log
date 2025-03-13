@@ -194,3 +194,37 @@
 2025-03-13T19:27:06.976Z [info]: [POST]: /login
 2025-03-13T19:27:13.063Z [info]: [POST]: /login
 2025-03-13T19:27:27.661Z [info]: [POST]: /ticket
+2025-03-13T19:30:35.009Z [info]: Server is listening on http://localhost:8000
+2025-03-13T19:30:37.000Z [info]: [POST]: /user/login
+2025-03-13T19:58:24.362Z [info]: Server is listening on http://localhost:8000
+2025-03-13T20:00:22.970Z [info]: Server is listening on http://localhost:8000
+2025-03-13T20:00:25.673Z [info]: [POST]: /user/register
+2025-03-13T20:00:32.190Z [info]: [POST]: /user/register
+2025-03-13T20:00:37.594Z [info]: [POST]: /user/register
+2025-03-13T20:00:40.797Z [info]: [POST]: /user/register
+2025-03-13T20:00:46.384Z [info]: [POST]: /user/login
+2025-03-13T20:00:54.981Z [info]: [POST]: /user/login
+2025-03-13T20:01:08.320Z [info]: [POST]: /user/login
+2025-03-13T20:01:26.379Z [info]: [POST]: /ticket
+2025-03-13T20:03:08.791Z [info]: [GET]: /ticket
+2025-03-13T20:03:26.957Z [info]: [POST]: /ticket
+2025-03-13T20:03:26.958Z [error]: jwt malformed
+2025-03-13T20:03:40.716Z [info]: [POST]: /ticket
+2025-03-13T20:06:48.417Z [info]: Server is listening on http://localhost:8000
+2025-03-13T20:06:52.564Z [info]: [POST]: /ticket
+2025-03-13T20:06:52.564Z [error]: jwt malformed
+2025-03-13T20:06:52.753Z [error]: The provided key element does not match the schema
+2025-03-13T20:10:55.831Z [info]: [POST]: /ticket
+2025-03-13T20:10:55.832Z [error]: jwt malformed
+2025-03-13T20:10:55.976Z [error]: The provided key element does not match the schema
+2025-03-13T20:11:12.043Z [info]: [POST]: /ticket
+2025-03-13T20:11:12.043Z [error]: jwt malformed
+2025-03-13T20:11:12.083Z [error]: The provided key element does not match the schema
+2025-03-13T20:13:38.839Z [info]: Server is listening on http://localhost:8000
+2025-03-13T20:13:42.334Z [info]: [POST]: /ticket
+2025-03-13T20:13:42.335Z [error]: jwt malformed
+2025-03-13T20:14:50.402Z [info]: [GET]: /ticket
+2025-03-13T20:14:59.181Z [info]: [POST]: /ticket
+2025-03-13T20:15:39.755Z [info]: [POST]: /ticket
+2025-03-13T20:16:01.224Z [info]: [POST]: /ticket
+2025-03-13T20:16:01.227Z [error]: jwt expired

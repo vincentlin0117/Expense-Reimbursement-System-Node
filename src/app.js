@@ -9,7 +9,7 @@ const app = express()
 
 app.use(express.json());
 app.use(loggerMiddleware)
-app.use('/', userRouter);
+app.use('/user', userRouter);
 app.use('/', ticketRouter);
 
 function loggerMiddleware(req,res,next){

@@ -5,7 +5,7 @@ const key = require('dotenv').config('./src/.env').parsed.JWT_SECRET
 
 const login = async (req,res)=>{
     const loginSchema = joi.object({
-        email: joi.string().email().required(),
+        username: joi.string().required(),
         password: joi.string().min(8).required()
     })
 
@@ -22,12 +22,12 @@ const login = async (req,res)=>{
         return res.status(400).json({message:messages});
     }
 
-    const user = await userService.findUserByEmailAndPassword(value)
+    const user = await userService.findUserByUsernameAndPassword(value)
 
     if(user.success){
         const token = jwt.sign({
             userId: user.user.userId,
-            email: user.user.email,
+            username: user.user.username,
             role: user.user.role,
         },key,{
             expiresIn:'15m'
@@ -40,10 +40,11 @@ const login = async (req,res)=>{
 
 const register = async (req,res)=>{
     const userSchema = joi.object({
-        firstname: joi.string().required(),
+        firstname: joi.string().optional(),
         middlename: joi.string().optional(),
-        lastname: joi.string().required(),
-        email: joi.string().email().required(),
+        lastname: joi.string().optional(),
+        username: joi.string().required(),
+        email: joi.string().email().optional(),
         password: joi.string().min(8).required(),
         address: joi.object({
             street: joi.string().required(),
@@ -53,7 +54,6 @@ const register = async (req,res)=>{
             country: joi.string().required()
         }).optional(),
         picture: joi.string().uri().optional(),
-        role: joi.string().required()
     })
 
     const {error, value} = userSchema.validate(req.body)

@@ -10,8 +10,13 @@ async function authenticateToken(req,res,next){
         res.status(403).json({message:"Forbidden Access"})
     }else{
         const tokenDetail = await decodeJWT(token)
-        req.locals ={tokenDetail:tokenDetail}
-        next()
+        
+        if(tokenDetail){
+            req.locals ={tokenDetail:tokenDetail}
+            next()
+        }else{
+            res.status(403).json({message:"Forbidden Access: Invalid Token"})
+        }
     }
 }
 
@@ -21,6 +26,7 @@ async function decodeJWT(token){
         return decodedToken
     }catch(err){
         logger.error(err)
+        return null;
     }
 }
 

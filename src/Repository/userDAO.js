@@ -29,12 +29,12 @@ async function getUserById(userId){
     }
 }
 
-async function getUserByEmail(email) {
+async function getUserByUsername(username) {
     const command = new ScanCommand({
         TableName: 'User',
-        FilterExpression: "email = :email",
+        FilterExpression: "username = :username",
         ExpressionAttributeValues:{
-            ":email": email
+            ":username": username
         }
     })
 
@@ -76,4 +76,4 @@ async function deleteUser(id) {
     }
 }
 
-module.exports = {getAllUser, getUserById, createUser, deleteUser, getUserByEmail}
+module.exports = {getAllUser, getUserById, createUser, deleteUser, getUserByUsername}

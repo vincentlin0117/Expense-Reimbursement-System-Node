@@ -20,7 +20,7 @@ const submitTicket = async (req,res)=>{
 
         return res.status(400).json({message:messages})
     }
-    const ticket = await ticketService.createTicket(req.locals.tokenDetail.userId,value)
+    const ticket = await ticketService.createTicket(req.locals.tokenDetail?.userId,value)
     if(ticket.success){
         res.status(201).json({message:"Ticket created",ticket:ticket.ticket})
     }else{

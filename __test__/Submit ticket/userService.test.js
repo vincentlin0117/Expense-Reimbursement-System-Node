@@ -9,6 +9,7 @@ describe('findUserById', ()=>{
         "firstname": "John",
         "middlename": "A.",
         "lastname": "Doe",
+        "username": "admin",
         "email": "john.doe@example.com",
         "password": "p@ssw0rd!",
         "address": {
