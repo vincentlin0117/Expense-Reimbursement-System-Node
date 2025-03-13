@@ -110,3 +110,5 @@
 2025-03-12T21:58:43.418Z [info]: Server is listening on http://localhost:8000
 2025-03-12T21:58:45.095Z [info]: [POST]: /ticket
 2025-03-12T21:58:49.123Z [info]: [GET]: /ticket
+2025-03-13T13:24:23.115Z [error]: Testing error
+2025-03-13T13:24:23.121Z [error]: Testing error

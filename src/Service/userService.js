@@ -17,7 +17,7 @@ async function createUser({firstname, middlename, lastname, email, password, add
         const userObj = {userId: uuidv4(), firstname, middlename, lastname, email, password, address, picture, role}
         const createStatus = await userDAO.createUser(userObj)
         if(createStatus){
-            return {sucess:true,user:userObj};
+            return {success:true,user:userObj};
         }else{
             return {success:false,message:"Failed to create user"};
         }

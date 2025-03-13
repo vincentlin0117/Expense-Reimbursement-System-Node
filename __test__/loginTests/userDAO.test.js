@@ -1,5 +1,5 @@
 const {getUserByEmailAndPassword,createUser} = require('../../src/Repository/userDAO')
-const documentClient = require('../../src/Repository/userDAO').documentClient;
+const documentClient = require('../../src/Database/database').documentClient;
 
 describe('getUserByEmailAndPassword', () => {
     const mockUser = {
@@ -68,7 +68,7 @@ describe('createUser', () => {
     });
     
     test('should return false when documentClient returns error', async () => {
-        jest.spyOn(documentClient,'send').mockRejectedValue();
+        jest.spyOn(documentClient,'send').mockRejectedValue(new Error('Testing error'));
 
         const result = await createUser(mockUser)
         expect(result).toEqual(false)
