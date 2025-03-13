@@ -29,24 +29,7 @@ async function getUserById(userId){
     }
 }
 
-async function getUserByEmailAndPassword(email,password) {
-    const command = new ScanCommand({
-        TableName: 'User',
-        FilterExpression: "email = :email AND password = :password",
-        ExpressionAttributeValues:{
-            ":email": email,
-            ":password": password
-        }
-    })
-
-    try{
-        return (await documentClient.send(command)).Items?.[0]
-    }catch(err){
-        logger.error(err)
-        return null
-    }
-}
-async function getUserByEmail(email,password) {
+async function getUserByEmail(email) {
     const command = new ScanCommand({
         TableName: 'User',
         FilterExpression: "email = :email",
@@ -93,4 +76,4 @@ async function deleteUser(id) {
     }
 }
 
-module.exports = {getAllUser, getUserById, createUser, deleteUser, getUserByEmail, getUserByEmailAndPassword}
+module.exports = {getAllUser, getUserById, createUser, deleteUser, getUserByEmail}

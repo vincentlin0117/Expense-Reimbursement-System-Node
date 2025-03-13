@@ -1,5 +1,7 @@
 const userService = require('../Service/userService');
-const joi = require('joi')
+const joi = require('joi');
+const jwt = require('jsonwebtoken');
+const key = require('dotenv').config('./src/.env').parsed.JWT_SECRET
 
 const login = async (req,res)=>{
     const loginSchema = joi.object({
@@ -23,7 +25,14 @@ const login = async (req,res)=>{
     const user = await userService.findUserByEmailAndPassword(value)
 
     if(user.success){
-        res.status(200).json(user.user)
+        const token = jwt.sign({
+            userId: user.user.userId,
+            email: user.user.email,
+            role: user.user.role,
+        },key,{
+            expiresIn:'15m'
+        })
+        res.status(200).json({message:"Successful login",token})
     }else{
         res.status(400).json({message: user.message})
     }
@@ -32,7 +41,7 @@ const login = async (req,res)=>{
 const register = async (req,res)=>{
     const userSchema = joi.object({
         firstname: joi.string().required(),
-        middlename: joi.string().optional(), // Optional field
+        middlename: joi.string().optional(),
         lastname: joi.string().required(),
         email: joi.string().email().required(),
         password: joi.string().min(8).required(),
@@ -43,7 +52,7 @@ const register = async (req,res)=>{
             postalCode: joi.string().pattern(/^[0-9]{5}(-[0-9]{4})?$/).required(),
             country: joi.string().required()
         }).optional(),
-        picture: joi.string().uri().optional(), // Optional field
+        picture: joi.string().uri().optional(),
         role: joi.string().required()
     })
 

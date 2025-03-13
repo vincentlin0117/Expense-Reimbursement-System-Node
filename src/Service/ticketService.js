@@ -2,7 +2,7 @@ const ticketDAO = require('../Repository/ticketDAO')
 const userService = require('./userService')
 const {v4:uuidv4} = require('uuid')
 
-async function createTicket({userId,description,type,amount}) {
+async function createTicket(userId,{description,type,amount}) {
     if((await userService.findUserById(userId)).success){
         const ticket = {
             ticketId: uuidv4(),

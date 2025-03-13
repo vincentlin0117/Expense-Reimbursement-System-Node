@@ -1,9 +1,10 @@
 const userDAO = require('../Repository/userDAO')
 const {v4:uuidv4} = require('uuid');
+const { hashPassword, comparePassword } = require('../Utils/bcrypt');
 
 async function findUserByEmailAndPassword({email,password}) {
-    const user = await userDAO.getUserByEmailAndPassword(email,password)
-    if(user){
+    const user = await userDAO.getUserByEmail(email)
+    if(user && await comparePassword(password,user?.password)){
         return {success:true,user:user}
     }else{
         return {success:false,message:'Incorrect email or password'}
@@ -11,7 +12,8 @@ async function findUserByEmailAndPassword({email,password}) {
 }
 
 async function createUser({firstname, middlename, lastname, email, password, address, picture, role}){
-    const exist = await userDAO.getUserByEmail(email,password)
+    password = await hashPassword(password)
+    const exist = await userDAO.getUserByEmail(email)
 
     if(!exist){
         const userObj = {userId: uuidv4(), firstname, middlename, lastname, email, password, address, picture, role}

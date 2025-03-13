@@ -1,8 +1,9 @@
 const {findUserByEmailAndPassword,createUser} = require('../../src/Service/userService')
 const userDAO = require('../../src/Repository/userDAO')
+const bcryptUtils = require('../../src/Utils/bcrypt')
 
 jest.mock('../../src/Repository/userDAO')
-
+jest.mock('../../src/Utils/bcrypt')
 describe('findUserByEmailAndPassword',()=>{
     const mockUser = {
         "firstname": "John",
@@ -22,21 +23,33 @@ describe('findUserByEmailAndPassword',()=>{
     }
 
     test('should return object with sucesses:true and user object', async () =>{
-        userDAO.getUserByEmailAndPassword.mockResolvedValue(mockUser)
+        userDAO.getUserByEmail.mockResolvedValue(mockUser)
+        bcryptUtils.hashPassword.mockResolvedValue("temp")
+        bcryptUtils.comparePassword.mockResolvedValue(true)
 
-        const result = await findUserByEmailAndPassword('john.doe@example.com', 'p@ssw0rd!')
+        const result = await findUserByEmailAndPassword({email:'john.doe@example.com', password:'p@ssw0rd!'})
         expect(result).toEqual({success:true,user:mockUser})
     })
-    test('should return success false and message for incorrect cred since there was an error when scanning database', async () =>{
-        userDAO.getUserByEmailAndPassword.mockResolvedValue(null)
 
-        const result = await findUserByEmailAndPassword('john.doe@example.com', 'p@ssw0rd!')
+    test('should return success false and message for incorrect cred since there was an error when scanning database', async () =>{
+        userDAO.getUserByEmail.mockResolvedValue(null)
+
+        const result = await findUserByEmailAndPassword({email:'john.doe@example.com', password:'p@ssw0rd!'})
         expect(result).toEqual({success:false,message:'Incorrect email or password'})
     })
-    test('should return success false and message for incorrect cred since no one matches the credentials', async ()=>{
-        userDAO.getUserByEmailAndPassword.mockResolvedValue(undefined)
 
-        const result = await findUserByEmailAndPassword('test@example.com','password123')
+    test('should return success false and message for incorrect cred since no one matches the email', async ()=>{
+        userDAO.getUserByEmail.mockResolvedValue(undefined)
+
+        const result = await findUserByEmailAndPassword({email:'test@example.com',password:'password123'})
+        expect(result).toEqual({success:false,message:'Incorrect email or password'})
+    })
+
+    test('should return success false and message for incorrect cred since no password doesnt match', async ()=>{
+        userDAO.getUserByEmail.mockResolvedValue(undefined)
+        jest.spyOn(bcryptUtils,'comparePassword').mockResolvedValue(false)
+
+        const result = await findUserByEmailAndPassword({email:'test@example.com',password:'password123'})
         expect(result).toEqual({success:false,message:'Incorrect email or password'})
     })
 })
@@ -47,7 +60,7 @@ describe('createUser', ()=>{
         "middlename": "A.",
         "lastname": "Doe",
         "email": "john.doe@example.com",
-        "password": "p@ssw0rd!",
+        "password": "$2b$10$jnM3t7dp3qBrN//ciNYAU.zHETJW5J1oYuQnD5eGZKhmElV2T8Iki",
         "address": {
             "street": "123 Elm Street",
             "city": "Springfield",
@@ -72,7 +85,7 @@ describe('createUser', ()=>{
                     "middlename": "A.",
                     "lastname": "Doe",
                     "email": "john.doe@example.com",
-                    "password": "p@ssw0rd!",
+                    "password": expect.any(String),
                     "address": {
                         "street": "123 Elm Street",
                         "city": "Springfield",

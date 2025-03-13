@@ -124,3 +124,73 @@
 2025-03-13T13:50:02.574Z [error]: Testing error
 2025-03-13T13:50:02.579Z [error]: Testing error
 2025-03-13T13:50:02.581Z [error]: Testing error
+2025-03-13T16:53:58.383Z [info]: Server is listening on http://localhost:8000
+2025-03-13T16:54:07.727Z [info]: [POST]: /login
+2025-03-13T16:54:58.526Z [info]: Server is listening on http://localhost:8000
+2025-03-13T16:54:59.796Z [info]: [POST]: /login
+2025-03-13T16:57:45.928Z [info]: Server is listening on http://localhost:8000
+2025-03-13T16:58:10.797Z [info]: [POST]: /ticket
+2025-03-13T16:59:11.206Z [info]: Server is listening on http://localhost:8000
+2025-03-13T16:59:13.167Z [info]: [POST]: /ticket
+2025-03-13T17:01:39.905Z [info]: Server is listening on http://localhost:8000
+2025-03-13T17:01:41.499Z [info]: [POST]: /ticket
+2025-03-13T17:07:07.414Z [info]: Server is listening on http://localhost:8000
+2025-03-13T17:07:09.132Z [info]: [POST]: /ticket
+2025-03-13T17:08:31.655Z [info]: Server is listening on http://localhost:8000
+2025-03-13T17:08:34.553Z [info]: [POST]: /ticket
+2025-03-13T17:09:12.957Z [info]: Server is listening on http://localhost:8000
+2025-03-13T17:09:16.283Z [info]: [POST]: /ticket
+2025-03-13T17:10:57.640Z [info]: Server is listening on http://localhost:8000
+2025-03-13T17:11:00.433Z [info]: [POST]: /ticket
+2025-03-13T17:11:00.435Z [error]: jwt expired
+2025-03-13T18:23:18.609Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:23:31.470Z [info]: [POST]: /login
+2025-03-13T18:23:44.865Z [info]: [POST]: /ticket
+2025-03-13T18:25:18.467Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:25:20.866Z [info]: [POST]: /ticket
+2025-03-13T18:25:44.911Z [info]: [POST]: /ticket
+2025-03-13T18:25:45.102Z [error]: The provided key element does not match the schema
+2025-03-13T18:26:28.088Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:26:30.575Z [info]: [POST]: /ticket
+2025-03-13T18:26:30.875Z [error]: The provided key element does not match the schema
+2025-03-13T18:26:53.432Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:26:56.284Z [info]: [POST]: /ticket
+2025-03-13T18:31:24.126Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:31:30.530Z [info]: [POST]: /login
+2025-03-13T18:31:44.000Z [info]: [POST]: /ticket
+2025-03-13T18:33:21.231Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:33:23.332Z [info]: [POST]: /ticket
+2025-03-13T18:33:53.206Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:33:54.611Z [info]: [POST]: /ticket
+2025-03-13T18:34:12.489Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:34:13.742Z [info]: [POST]: /ticket
+2025-03-13T18:35:01.133Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:35:03.328Z [info]: [POST]: /ticket
+2025-03-13T18:35:41.433Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:35:42.883Z [info]: [POST]: /ticket
+2025-03-13T18:36:53.426Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:36:55.711Z [info]: [POST]: /ticket
+2025-03-13T18:50:56.120Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:51:03.381Z [info]: [POST]: /login
+2025-03-13T18:51:24.301Z [info]: [POST]: /register
+2025-03-13T18:52:12.274Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:52:15.725Z [info]: [POST]: /register
+2025-03-13T18:52:49.719Z [info]: [POST]: /register
+2025-03-13T18:52:55.378Z [info]: [POST]: /login
+2025-03-13T18:54:17.778Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:54:18.880Z [info]: [POST]: /login
+2025-03-13T18:54:23.861Z [info]: [POST]: /register
+2025-03-13T18:54:27.171Z [info]: [POST]: /login
+2025-03-13T18:56:58.177Z [info]: Server is listening on http://localhost:8000
+2025-03-13T18:57:00.181Z [info]: [POST]: /login
+2025-03-13T19:25:40.366Z [info]: Server is listening on http://localhost:8000
+2025-03-13T19:25:49.943Z [info]: [POST]: /register
+2025-03-13T19:25:53.523Z [info]: [POST]: /register
+2025-03-13T19:25:57.310Z [info]: [POST]: /register
+2025-03-13T19:26:25.692Z [info]: [POST]: /register
+2025-03-13T19:26:48.375Z [info]: [POST]: /login
+2025-03-13T19:26:56.898Z [info]: [POST]: /login
+2025-03-13T19:27:03.275Z [info]: [POST]: /login
+2025-03-13T19:27:06.976Z [info]: [POST]: /login
+2025-03-13T19:27:13.063Z [info]: [POST]: /login
+2025-03-13T19:27:27.661Z [info]: [POST]: /ticket

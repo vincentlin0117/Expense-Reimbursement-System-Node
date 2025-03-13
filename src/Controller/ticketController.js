@@ -3,7 +3,6 @@ const joi = require('joi')
 
 const submitTicket = async (req,res)=>{
     const ticketSchema = joi.object({
-        userId: joi.string().required(),
         description: joi.string().required(),
         type: joi.string().required(),
         amount: joi.number().min(0).required()
@@ -21,8 +20,7 @@ const submitTicket = async (req,res)=>{
 
         return res.status(400).json({message:messages})
     }
-    const ticket = await ticketService.createTicket(value)
-    
+    const ticket = await ticketService.createTicket(req.locals.tokenDetail.userId,value)
     if(ticket.success){
         res.status(201).json({message:"Ticket created",ticket:ticket.ticket})
     }else{
