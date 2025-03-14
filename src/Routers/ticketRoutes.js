@@ -1,8 +1,11 @@
 const express = require('express')
 const ticketRouter = express.Router()
-const {submitTicket} = require('../Controller/ticketController');
-const { authenticateToken } = require('../Utils/jwt');
+const {submitTicket, getTicketsByStatus,getPreviousTickets, updateTicketStatus} = require('../Controller/ticketController');
+const {authorizeRole} = require('../Middleware/AuthRoleMiddleware')
 
-ticketRouter.post('/ticket',authenticateToken,submitTicket)
+ticketRouter.post('/',submitTicket)
+ticketRouter.get('/', authorizeRole('Manager'), getTicketsByStatus)
+ticketRouter.get('/user', getPreviousTickets)
+ticketRouter.put('/:ticketId/updateStatus',authorizeRole('Manager'), updateTicketStatus)
 
 module.exports = {ticketRouter}

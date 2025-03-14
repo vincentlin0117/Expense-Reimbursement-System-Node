@@ -10,7 +10,8 @@ async function createTicket(userId,{description,type,amount}) {
             description:description,
             type: type,
             amount:amount,
-            status: "pending"
+            status: "Pending",
+            createDate: (new Date()).toISOString().split('T')[0]
         }
 
         const result = await ticketDAO.createTicket(ticket)
@@ -18,12 +19,63 @@ async function createTicket(userId,{description,type,amount}) {
         if(result){
             return {success:true,ticket:ticket}
         }else{
-            return {success:false, message:'Failed to create ticket'}
+            return {success:false,code:500, message:'Failed to create ticket'}
         }
     }else{
-        return {success:false, message:'User doesnt exist'};
+        return {success:false,code:400, message:'User doesnt exist'};
     }
     
 }
 
-module.exports = {createTicket}
+async function  getTicketsByStatus({status}) {
+    const tickets = await ticketDAO.getAllTicketByStatus(status)
+
+    if(tickets){
+        return {success:true,tickets:tickets}
+    }else{
+        return {success:false,code:500, message: `Failed to get tickets with status: ${status}`}
+    }
+}
+
+async function getAllTicketsByUserId(userId){
+    const tickets = await ticketDAO.getAllTicketsByUserId(userId)
+    if(tickets){
+        const sortedTickets = tickets.sort((a, b) => {
+            const dateComparison = new Date(b.createdDate) - new Date(a.createdDate);
+            if (dateComparison !== 0) return dateComparison;
+        
+            const statusOrder = ['Pending', 'Approve', 'Deny'];
+            return statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status);
+        });
+
+        return {success:true,tickets:sortedTickets}
+    }else{
+        return {success: false, code:500, message:"Failed to get tickets"}
+    }
+}
+
+async function updateTicketStatus(userId,{ticketId,status}) {
+    const ticket = await ticketDAO.getTicketByTicketId(ticketId)
+    if(ticket){
+        if(ticket.status == 'Pending'){
+            const result = ticketDAO.updateTicket(ticketId,{resolver:userId,status})
+            if(result){
+                ticket.status = status;
+                ticket.resolver = userId;
+                return {success:true, ticket:ticket}
+            }else{
+                return {success:false, code:500, message: "Failed to update ticket"}
+            }
+        }else{
+            return {success:false, code:400, message: "Ticket status isnt Pending, cannot be change"}
+        }
+    }else{
+        return {success:false, code:400, message: "Ticket does not exist"}
+    }
+}
+module.exports = {
+    createTicket, 
+    getTicketsByStatus, 
+    getAllTicketsByUserId,
+    updateTicketStatus
+}

@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { logger } = require('./logger');
+const { logger } = require('../Utils/logger');
 const key = require('dotenv').config('./src/.env').parsed.JWT_SECRET
 
 async function authenticateToken(req,res,next){

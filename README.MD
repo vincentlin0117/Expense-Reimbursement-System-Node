@@ -62,15 +62,19 @@ project/
 
 ## ticketDAO methods
 - createTicket
-- getTicketByStatus
-- updateTicketStatus
+- getAllTicketByStatus
+- getAllTicketsByUserId
+- getTicketByTicketId
+- updateTicket
 
 ## ticketService methods
 - createTicket
-- view tickets
-- update ticket status
+- getTicketsByStatus
+- updateTicketStatus
+- getAllTicketsByUserId
 
 ## Ticket features
 - submit ticket /ticket
-- aprrove/deny ticket /ticket
-- view all pending tickets /ticket/pending
+- aprrove/deny ticket /ticket/:ticketId/updateStatus
+- view all pending tickets /ticket?status=___
+- view previous tickets /ticket/user

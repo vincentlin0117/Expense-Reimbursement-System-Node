@@ -228,3 +228,136 @@
 2025-03-13T20:15:39.755Z [info]: [POST]: /ticket
 2025-03-13T20:16:01.224Z [info]: [POST]: /ticket
 2025-03-13T20:16:01.227Z [error]: jwt expired
+2025-03-14T17:42:42.823Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:47:50.026Z [info]: [POST]: /user/login
+2025-03-14T17:48:07.488Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:48:41.948Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:48:45.161Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:49:15.162Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:49:16.577Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:49:39.104Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:49:41.518Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:50:31.659Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:50:50.814Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:51:14.391Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:51:15.995Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:52:11.904Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:52:13.447Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:53:04.649Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:53:11.074Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:53:42.700Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:53:43.923Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:56:33.378Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:56:35.191Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:57:28.791Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:57:32.959Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:58:01.350Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:58:03.501Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:58:24.384Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:58:28.316Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T17:58:58.095Z [info]: Server is listening on http://localhost:8000
+2025-03-14T17:59:01.085Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T18:02:40.530Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:02:43.224Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T18:04:13.292Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:04:15.866Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T18:04:15.868Z [error]: jwt expired
+2025-03-14T18:04:24.666Z [info]: [POST]: /user/login
+2025-03-14T18:04:36.384Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T18:07:55.961Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:07:57.760Z [info]: [GET]: /ticket/user
+2025-03-14T18:11:00.372Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:11:04.856Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T18:11:05.068Z [error]: Invalid FilterExpression: Attribute name is a reserved keyword; reserved keyword: status
+2025-03-14T18:13:00.028Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:13:02.858Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T18:13:03.050Z [error]: Invalid FilterExpression: Attribute name is a reserved keyword; reserved keyword: status
+2025-03-14T18:15:05.351Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:15:08.690Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T18:15:08.880Z [error]: Invalid FilterExpression: An expression attribute name used in the document path is not defined; attribute name: #status
+2025-03-14T18:16:39.228Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:16:42.949Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T18:21:11.560Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:21:14.493Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T18:21:14.495Z [error]: jwt expired
+2025-03-14T18:25:21.425Z [info]: [POST]: /user/login
+2025-03-14T18:25:26.967Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T18:25:38.921Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:25:40.741Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T18:33:14.721Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:34:16.993Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:34:19.688Z [info]: [GET]: /ticket/user
+2025-03-14T18:34:19.691Z [error]: jwt expired
+2025-03-14T18:34:26.379Z [info]: [POST]: /user/login
+2025-03-14T18:34:28.663Z [info]: [GET]: /ticket/user
+2025-03-14T18:34:28.665Z [error]: jwt expired
+2025-03-14T18:34:37.353Z [info]: [POST]: /user/login
+2025-03-14T18:34:47.532Z [info]: [GET]: /ticket/user
+2025-03-14T18:35:09.271Z [info]: [GET]: /ticket
+2025-03-14T18:36:14.182Z [info]: [GET]: /ticket
+2025-03-14T18:37:49.606Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:37:51.545Z [info]: [GET]: /ticket
+2025-03-14T18:37:55.093Z [info]: [GET]: /ticket
+2025-03-14T18:38:34.544Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:38:35.849Z [info]: [GET]: /ticket
+2025-03-14T18:39:16.676Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:39:41.904Z [info]: [PUT]: /ticket
+2025-03-14T18:40:28.789Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T18:41:58.585Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:42:01.624Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T18:44:37.418Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:44:43.996Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T18:44:59.267Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:45:02.103Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T18:45:02.321Z [error]: ExpressionAttributeValues must not be empty
+2025-03-14T18:45:58.767Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:46:05.998Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T18:46:06.226Z [error]: ExpressionAttributeValues must not be empty
+2025-03-14T18:46:30.860Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:46:33.819Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T18:46:34.056Z [error]: Invalid UpdateExpression: Attribute name is a reserved keyword; reserved keyword: status
+2025-03-14T18:47:18.968Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:47:21.322Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T18:47:31.322Z [info]: [GET]: /ticket/user
+2025-03-14T18:49:03.961Z [info]: Server is listening on http://localhost:8000
+2025-03-14T18:49:11.311Z [info]: [POST]: /ticket
+2025-03-14T19:07:49.468Z [info]: Server is listening on http://localhost:8000
+2025-03-14T19:08:11.447Z [info]: [GET]: /ticket
+2025-03-14T19:08:11.449Z [error]: jwt expired
+2025-03-14T19:08:18.730Z [info]: [POST]: /user/login
+2025-03-14T19:08:24.041Z [info]: [GET]: /ticket
+2025-03-14T19:08:46.799Z [info]: [POST]: /user/login
+2025-03-14T19:10:03.854Z [info]: [POST]: /user/login
+2025-03-14T19:10:08.734Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T19:10:47.079Z [info]: [POST]: /user/login
+2025-03-14T19:10:52.365Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T19:11:30.993Z [info]: Server is listening on http://localhost:8000
+2025-03-14T19:11:34.858Z [info]: [GET]: /ticket?status=Pending
+2025-03-14T19:13:38.814Z [info]: Server is listening on http://localhost:8000
+2025-03-14T19:13:44.094Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:13:44.095Z [error]: jwt malformed
+2025-03-14T19:14:06.685Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:14:06.686Z [error]: jwt malformed
+2025-03-14T19:14:15.597Z [info]: Server is listening on http://localhost:8000
+2025-03-14T19:14:19.120Z [info]: [POST]: /user/login
+2025-03-14T19:14:24.918Z [info]: [POST]: /ticket
+2025-03-14T19:14:39.276Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:15:21.172Z [info]: [PUT]: /ticket/f52072d5-42e5-459f-a657-f83b2a3ee27e/updateStatus
+2025-03-14T19:15:30.015Z [info]: [PUT]: /ticket/f52072d5-42e5-459f-a657-f83b2a3ee27e/updateStatus
+2025-03-14T19:15:56.804Z [info]: [PUT]: /ticket/f52072d5-42e5-459f-a657-f83b2a3ee27e/updateStatus
+2025-03-14T19:24:20.862Z [info]: Server is listening on http://localhost:8000
+2025-03-14T19:24:38.589Z [info]: [GET]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:24:45.444Z [info]: [GET]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:24:51.754Z [info]: [GET]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:25:02.772Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:25:20.757Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:25:38.399Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:26:08.658Z [info]: [GET]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:26:15.760Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:26:36.112Z [info]: [PUT]: /ticket/updateStatus
+2025-03-14T19:27:04.306Z [info]: [PUT]: /ticket/4e9372bb/updateStatus
+2025-03-14T19:27:12.116Z [info]: [PUT]: /ticket/4e9372bb/updateStatus
+2025-03-14T19:27:58.437Z [info]: [GET]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:28:04.140Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:28:22.702Z [info]: [GET]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
+2025-03-14T19:28:27.594Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus

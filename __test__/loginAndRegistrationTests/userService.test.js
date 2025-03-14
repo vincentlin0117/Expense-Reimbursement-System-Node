@@ -4,6 +4,7 @@ const bcryptUtils = require('../../src/Utils/bcrypt')
 
 jest.mock('../../src/Repository/userDAO')
 jest.mock('../../src/Utils/bcrypt')
+
 describe('findUserByUsernameAndPassword',()=>{
     const mockUser = {
         "firstname": "John",

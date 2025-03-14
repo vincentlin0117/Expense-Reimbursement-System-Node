@@ -1,4 +1,4 @@
-const {GetCommand,PutCommand,DeleteCommand,ScanCommand} = require('@aws-sdk/lib-dynamodb')
+const {GetCommand,PutCommand,DeleteCommand,UpdateCommand,ScanCommand} = require('@aws-sdk/lib-dynamodb')
 
 const {documentClient} = require('../Database/database');
 const { logger } = require('../Utils/logger');
@@ -8,6 +8,7 @@ async function createTicket(ticket) {
         TableName: 'Ticket',
         Item: ticket
     })
+
     try{
         await documentClient.send(command)
         return true;
@@ -17,14 +18,18 @@ async function createTicket(ticket) {
     }
 }
 
-async function  getAllTicketByUser(userId) {
+async function getAllTicketByStatus(status) {
     const command = new ScanCommand({
-        TableName:'Ticket',
-        FilterExpression: "userId = :userId",
+        TableName: 'Ticket',
+        FilterExpression: '#status = :status',
+        ExpressionAttributeNames:{
+            "#status" : 'status'
+        },
         ExpressionAttributeValues: {
-            ':userId': userId
+            ":status":status
         }
     })
+
     try{
         return (await documentClient.send(command)).Items
     }catch(err){
@@ -32,10 +37,16 @@ async function  getAllTicketByUser(userId) {
         return null
     }
 }
-async function getAllTicket() {
+
+async function getAllTicketsByUserId(userId) {
     const command = new ScanCommand({
-        TableName: 'Ticket'
+        TableName: 'Ticket',
+        FilterExpression: 'userId = :userId',
+        ExpressionAttributeValues: {
+            ":userId": userId
+        }
     })
+
     try{
         return (await documentClient.send(command)).Items
     }catch(err){
@@ -44,5 +55,52 @@ async function getAllTicket() {
     }
 }
 
+async function getTicketByTicketId(ticketId) {
+    const command = new GetCommand({
+        TableName:'Ticket',
+        Key: {ticketId}
+    })
 
-module.exports = {createTicket, getAllTicketByUser, getAllTicket}
+    try{
+        return (await documentClient.send(command)).Item
+    }catch(err){
+        logger.error(err)
+        return null
+    }
+}
+
+async function updateTicket(ticketId,updateFields) {
+    const updateExpression =[];
+    const attributeNames = {};
+    const attributeValues = {};
+
+    Object.keys(updateFields).forEach(field => {
+        updateExpression.push(`#${field} = :${field}`)
+        attributeNames[`#${field}`] = field;
+        attributeValues[`:${field}`] = updateFields[field]
+    });
+
+    const command = new UpdateCommand({
+        TableName:'Ticket',
+        Key: {ticketId:ticketId},
+        UpdateExpression: `SET ${updateExpression.join(', ')}`,
+        ExpressionAttributeNames:attributeNames,
+        ExpressionAttributeValues:attributeValues
+    })
+
+    try{
+        await documentClient.send(command)
+        return true
+    }catch(err){
+        logger.error(err)
+        return null
+    }
+}
+
+module.exports = {
+    createTicket, 
+    getAllTicketByStatus, 
+    getAllTicketsByUserId,
+    getTicketByTicketId,
+    updateTicket
+}
