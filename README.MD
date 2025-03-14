@@ -13,14 +13,17 @@ project/
 │   │   ├── ticketService.js
 │   │   └── userService.js
 │   ├── Repository/             // interacting with db
-│   │   ├── userModel.js
-│   │   └── ticketModel.js
-│   ├── utils/              
+│   │   ├── userDAO.js
+│   │   └── ticketDAO.js
+│   ├── utils/    
+│   │   ├── bcrypt.js
+│   │   ├── jwt.js
 │   │   └── logger.js
 │   ├── database/           // Database connection setup
-│   │   └── connect.js
+│   │   └── database.js
 ├── __test__
 │   │   └──...test.js
+├── .env
 ├── package.json            // Project dependencies and scripts
 ├── .package-lock.json                    // Environment variables
 ├── .gitignore              // Git ignore file
@@ -30,9 +33,11 @@ project/
 - name
 - username
 - password
+- email
 - role
 - address
 - picture?
+
 ## Ticket
 - id
 - resolver
@@ -43,12 +48,13 @@ project/
 - status
 
 ## userDOA methods
-- getUserByNameAndPassword: return userObj
-- createUser - return t/f
+- getUserByUsername
+- createUser 
+- getUserById
 
 ## userService methods
-- findUserByNameAndPassword - return userObj/null
-- createUser - return userObj/null
+- findUserByUsernameAndPassword
+- createUser
 
 ## User Features
 - login in at /login
@@ -56,9 +62,15 @@ project/
 
 ## ticketDAO methods
 - createTicket
+- getTicketByStatus
+- updateTicketStatus
 
 ## ticketService methods
 - createTicket
+- view tickets
+- update ticket status
 
 ## Ticket features
-- submit ticket
+- submit ticket /ticket
+- aprrove/deny ticket /ticket
+- view all pending tickets /ticket/pending
