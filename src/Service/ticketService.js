@@ -58,7 +58,7 @@ async function updateTicketStatus(userId,{ticketId,status}) {
     const ticket = await ticketDAO.getTicketByTicketId(ticketId)
     if(ticket){
         if(ticket.status == 'Pending'){
-            const result = ticketDAO.updateTicket(ticketId,{resolver:userId,status})
+            const result = await ticketDAO.updateTicket(ticketId,{resolver:userId,status})
             if(result){
                 ticket.status = status;
                 ticket.resolver = userId;

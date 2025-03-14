@@ -25,7 +25,7 @@ describe('createTicket', ()=>{
                 description: "A detailed description of the issue or request",
                 type: "Travel",
                 amount: 150.0,
-                status:"pending"
+                status:"Pending"
             }
         })
     })
@@ -34,13 +34,13 @@ describe('createTicket', ()=>{
         ticketDAO.createTicket.mockResolvedValue(false)
         
         const result = await createTicket(userId,ticket)
-        expect(result).toEqual({success:false, message:'Failed to create ticket'})
+        expect(result).toEqual({success:false,code:500, message:'Failed to create ticket'})
     })
 
     test('should return success false and a error user doesnt exist', async ()=>{
         jest.spyOn(userService,'findUserById').mockResolvedValue({success:false})
         
         const result = await createTicket("fakeid",ticket)
-        expect(result).toEqual({success:false, message:'User doesnt exist'})
+        expect(result).toEqual({success:false,code:400, message:'User doesnt exist'})
     })
 })
