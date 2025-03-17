@@ -36,7 +36,7 @@ describe("authorizeRole", ()=>{
         const middleware = authorizeRole("Manager")
         middleware(req,res,next);
 
-        expect(res.status).toHaveBeenCalledWith(403)
-        expect(res.json).toHaveBeenCalledWith({message: "Employee cannt not process request"})
+        expect(res.status).toHaveBeenCalledWith(401)
+        expect(res.json).toHaveBeenCalledWith({message: "Employee cannot access this"})
     })
 })

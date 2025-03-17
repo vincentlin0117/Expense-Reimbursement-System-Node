@@ -58,13 +58,17 @@ async function updateTicketStatus(userId,{ticketId,status}) {
     const ticket = await ticketDAO.getTicketByTicketId(ticketId)
     if(ticket){
         if(ticket.status == 'Pending'){
-            const result = await ticketDAO.updateTicket(ticketId,{resolver:userId,status})
-            if(result){
-                ticket.status = status;
-                ticket.resolver = userId;
-                return {success:true, ticket:ticket}
+            if(userId != ticket.userId){
+                const result = await ticketDAO.updateTicket(ticketId,{resolver:userId,status})
+                if(result){
+                    ticket.status = status;
+                    ticket.resolver = userId;
+                    return {success:true, ticket:ticket}
+                }else{
+                    return {success:false, code:500, message: "Failed to update ticket"}
+                }
             }else{
-                return {success:false, code:500, message: "Failed to update ticket"}
+                return {success: false, code:400, message: "Cannot Approve/Deny own ticket"}
             }
         }else{
             return {success:false, code:400, message: "Ticket status isnt Pending, cannot be change"}
@@ -73,6 +77,7 @@ async function updateTicketStatus(userId,{ticketId,status}) {
         return {success:false, code:400, message: "Ticket does not exist"}
     }
 }
+
 module.exports = {
     createTicket, 
     getTicketsByStatus, 

@@ -118,4 +118,16 @@ describe("updateTicketStatus", ()=>{
         const result = await updateTicketStatus(userId,{ticketId,status})
         expect(result).toEqual({success:false, code:400, message: "Ticket does not exist"})
     })
+
+    test("should return object with success false and message saying cannot aprove/deny own ticket", async ()=>{
+        ticketDAO.getTicketByTicketId.mockResolvedValue(fakeTicket)
+        ticketDAO.updateTicket.mockResolvedValue(true)
+        
+        const userId = "zxy890"
+        const status = "Approve"
+        const ticketId = "abcd123"
+
+        const result = await updateTicketStatus(userId,{ticketId,status})
+        expect(result).toEqual({success: false, code:400, message: "Cannot Approve/Deny own ticket"})
+    })
 })

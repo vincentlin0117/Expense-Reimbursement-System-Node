@@ -83,6 +83,7 @@ const updateTicketStatus = async(req,res)=>{
         res.status(ticket.code).json({message:ticket.message})
     }
 }
+
 module.exports = {
     submitTicket, 
     getTicketsByStatus, 

@@ -1,7 +1,7 @@
 const authorizeRole = (expectedRole)=>{
     return (req,res,next) =>{
         if(req.locals.tokenDetail?.role != expectedRole){
-            res.status(403).json({message: "Employee cannt not process request"})
+            res.status(401).json({message: "Employee cannot access this"})
         }else{
             next()
         }

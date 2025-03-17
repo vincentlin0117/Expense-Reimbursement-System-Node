@@ -1,8 +1,6 @@
 const authorizeTokenMiddleware = require('../../src/Middleware/AuthTokenMiddleware')
 const jtw = require('jsonwebtoken')
 
-//jest.mock('jsonwebtoken')
-
 describe("authenticateToken", ()=>{
     let req;
     let res;
