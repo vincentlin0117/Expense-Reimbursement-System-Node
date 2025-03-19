@@ -1,4 +1,4 @@
-const {GetCommand,PutCommand,DeleteCommand,UpdateCommand,ScanCommand} = require('@aws-sdk/lib-dynamodb')
+const {GetCommand,PutCommand,QueryCommand,UpdateCommand,ScanCommand} = require('@aws-sdk/lib-dynamodb')
 
 const {documentClient} = require('../Database/database');
 const { logger } = require('../Utils/logger');
@@ -19,9 +19,10 @@ async function createTicket(ticket) {
 }
 
 async function getAllTicketByStatus(status) {
-    const command = new ScanCommand({
+    const command = new QueryCommand({
         TableName: 'Ticket',
-        FilterExpression: '#status = :status',
+        IndexName: 'statusIndex',
+        KeyConditionExpression: '#status = :status',
         ExpressionAttributeNames:{
             "#status" : 'status'
         },
@@ -39,9 +40,10 @@ async function getAllTicketByStatus(status) {
 }
 
 async function getAllTicketsByUserId(userId) {
-    const command = new ScanCommand({
+    const command = new QueryCommand({
         TableName: 'Ticket',
-        FilterExpression: 'userId = :userId',
+        IndexName: 'userIdIndex',
+        KeyConditionExpression: 'userId = :userId',
         ExpressionAttributeValues: {
             ":userId": userId
         }
