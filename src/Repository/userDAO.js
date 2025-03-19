@@ -1,19 +1,7 @@
-const {GetCommand,PutCommand,DeleteCommand,ScanCommand} = require('@aws-sdk/lib-dynamodb')
+const {GetCommand,PutCommand,QueryCommand} = require('@aws-sdk/lib-dynamodb')
 const { logger } = require('../Utils/logger')
 
 const {documentClient} = require('../Database/database')
-
-async function getAllUser(){
-    const command = new ScanCommand({
-        TableName: 'User'
-    })
-    try{
-        return (await documentClient.send(command)).Items 
-    }catch(err){
-        logger.error(err)
-        return null
-    }
-}
 
 async function getUserById(userId){
     const command = new GetCommand({
@@ -30,9 +18,10 @@ async function getUserById(userId){
 }
 
 async function getUserByUsername(username) {
-    const command = new ScanCommand({
+    const command = new QueryCommand({
         TableName: 'User',
-        FilterExpression: "username = :username",
+        IndexName: 'usernameIndex',
+        KeyConditionExpression: "username = :username",
         ExpressionAttributeValues:{
             ":username": username
         }
@@ -61,19 +50,4 @@ async function createUser(user) {
     }
 }
 
-async function deleteUser(id) {
-    const command = new DeleteCommand({
-        TableName: 'User',
-        Key: {id}
-    })
-    
-    try{
-        await documentClient.send(command)
-        return true;
-    }catch(err){
-        logger.error(err)
-        return false;
-    }
-}
-
-module.exports = {getAllUser, getUserById, createUser, deleteUser, getUserByUsername}
+module.exports = {getUserById, createUser, getUserByUsername}

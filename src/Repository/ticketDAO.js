@@ -1,4 +1,4 @@
-const {GetCommand,PutCommand,QueryCommand,UpdateCommand,ScanCommand} = require('@aws-sdk/lib-dynamodb')
+const {GetCommand,PutCommand,QueryCommand,UpdateCommand} = require('@aws-sdk/lib-dynamodb')
 
 const {documentClient} = require('../Database/database');
 const { logger } = require('../Utils/logger');

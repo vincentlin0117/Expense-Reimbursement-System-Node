@@ -556,3 +556,4 @@
 2025-03-19T19:06:04.724Z [info]: [PUT]: /ticket/4e9372bb-18be-4aa2-ae03-c71b97d5ebd0/updateStatus
 2025-03-19T19:06:04.801Z [info]: [PUT]: /ticket/da3e7d82-729a-4fc0-aa3c-b3953398cf01/updateStatus
 2025-03-19T19:06:04.863Z [info]: [GET]: /ticket/user
+2025-03-19T19:54:09.930Z [error]: Testing Error
