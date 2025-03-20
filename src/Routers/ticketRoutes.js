@@ -4,8 +4,8 @@ const {submitTicket, getTicketsByStatus,getPreviousTickets, updateTicketStatus} 
 const {authorizeRole} = require('../Middleware/AuthRoleMiddleware')
 
 ticketRouter.post('/',submitTicket)
-ticketRouter.get('/', authorizeRole('Manager'), getTicketsByStatus)
+ticketRouter.get('/ticket', authorizeRole('Manager'), getTicketsByStatus)
 ticketRouter.get('/user', getPreviousTickets)
-ticketRouter.put('/:ticketId/updateStatus',authorizeRole('Manager'), updateTicketStatus)
+ticketRouter.put('/ticket/:ticketId/status',authorizeRole('Manager'), updateTicketStatus)
 
 module.exports = {ticketRouter}

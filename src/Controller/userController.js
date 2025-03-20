@@ -76,7 +76,34 @@ const register = async (req,res)=>{
         res.status(400).json({message:user.message})
     }
 }
+const updateRole = async (req,res)=>{
+    const updateRoleSchema = joi.object({
+        userId: joi.string().required(),
+        role: joi.string().valid('Employee','Manager').required()
+    })
 
+    const {error,value} = updateRoleSchema.validate({userId:req.params.userId, role:req.body.role})
+
+    if(error){
+        const messages = [];
+
+        error.details.forEach(detail =>{
+            const cleanMsg = detail.message.replace(/"/g,'')
+            messages.push(cleanMsg)
+        })
+
+        return res.status(400).json({message:messages});
+    }
+
+    const result = await userService.updateRole(req.locals.tokenDetail.userId,value)
+
+    if(result.success){
+        return res.status(200).json({message:result.message})
+    }else{
+        return res.status(result.code).json({message:result.message})
+    }
+    
+}
 module.exports = {
-    login, register
+    login, register,updateRole
 }

@@ -10,8 +10,8 @@ const app = express()
 
 app.use(express.json());
 app.use(loggerMiddleware)
-app.use('/user', userRouter);
-app.use('/ticket',authenticateToken, ticketRouter);
+app.use('/users', userRouter);
+app.use('/tickets',authenticateToken, ticketRouter);
 
 app.listen(HTTP_PORT,()=>{
     logger.info(`Server is listening on http://localhost:${HTTP_PORT}`)

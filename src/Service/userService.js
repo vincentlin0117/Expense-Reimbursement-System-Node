@@ -38,4 +38,22 @@ async function findUserById(userId) {
     }
 }
 
-module.exports = {findUserByUsernameAndPassword,createUser, findUserById}
+async function updateRole(managerId, {userId,role}) {
+    if(managerId != userId){
+        const user = await userDAO.getUserById(userId)
+        if(user){
+            const updatedUser = await userDAO.updateUser(userId,{role})
+            if(updatedUser){
+                return {success:true,message:"Role updated"}
+            }else{
+                return {success:false,code:500, message:"Failed to update"}
+            }
+        }else{
+            return {success:false,code:400, message:"User does not exist"}
+        }
+    }else{
+        return {success:false, code:403, message:"Cannot change your own role"}
+    }
+}
+
+module.exports = {findUserByUsernameAndPassword,createUser, findUserById, updateRole}

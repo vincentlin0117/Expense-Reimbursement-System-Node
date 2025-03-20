@@ -581,3 +581,28 @@
 2025-03-20T14:30:24.121Z [info]: [GET]: /ticket/user?type=Travel
 2025-03-20T14:33:13.067Z [info]: Server is listening on http://localhost:8000
 2025-03-20T14:33:15.886Z [info]: [GET]: /ticket/user?type=Travel
+2025-03-20T15:44:38.792Z [info]: Server is listening on http://localhost:8000
+2025-03-20T15:44:48.264Z [info]: [POST]: /users/user/login
+2025-03-20T15:44:55.466Z [info]: [GET]: /tickets/ticket?status=Pending
+2025-03-20T15:57:59.008Z [info]: Server is listening on http://localhost:8000
+2025-03-20T15:58:02.207Z [info]: [PUT]: /users/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T15:58:14.331Z [info]: [PUT]: /users/user/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T15:58:26.525Z [info]: [PUT]: /users/user/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T16:04:08.203Z [info]: Server is listening on http://localhost:8000
+2025-03-20T16:04:31.661Z [info]: [PUT]: /users/user/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T16:04:31.665Z [error]: jwt expired
+2025-03-20T16:04:38.931Z [info]: [POST]: /users/user/login
+2025-03-20T16:04:44.823Z [info]: [PUT]: /users/user/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T16:05:01.498Z [info]: Server is listening on http://localhost:8000
+2025-03-20T16:05:04.448Z [info]: [PUT]: /users/user/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T17:45:35.247Z [info]: Server is listening on http://localhost:8000
+2025-03-20T17:45:41.402Z [info]: [POST]: /users/user/login
+2025-03-20T17:45:44.675Z [info]: [PUT]: /users/user/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T17:45:47.600Z [info]: [PUT]: /users/user/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T17:45:50.760Z [info]: [PUT]: /users/user/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T17:45:50.762Z [error]: jwt expired
+2025-03-20T17:45:56.809Z [info]: [POST]: /users/user/login
+2025-03-20T17:45:59.743Z [info]: [PUT]: /users/user/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T17:46:07.099Z [info]: [PUT]: /users/user/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T17:46:12.029Z [info]: [PUT]: /users/user/25a3da5e-9978-4609-969e-f04db30a2781/role
+2025-03-20T17:46:15.470Z [info]: [PUT]: /users/user/45/role

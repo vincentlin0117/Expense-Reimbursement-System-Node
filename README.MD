@@ -60,6 +60,7 @@ project/
 ## User Features
 - login in at /login
 - register/create account at /register
+- change roles /updateRoles
 
 ## ticketDAO methods
 - createTicket
@@ -76,9 +77,20 @@ project/
 -  (maybe) updateTicketInfo
 
 ## Ticket features
-- submit ticket /ticket
-- aprrove/deny ticket /ticket/:ticketId/updateStatus
-- view all pending tickets /ticket?status=___
-- view previous tickets /ticket/user
+- submit ticket
+- aprrove/deny ticket 
+- view all pending tickets
+- view previous tickets
 - (maybe) update ticket information /ticket/:ticketId/update?{type=____,description=___,amount=___}
-- sort by reimbursement type /ticket/user?type=___
+- sort by reimbursement type 
+
+
+## Endpoints
+- /users/user/login
+- /users/
+- /users/user/{userId}/role
+- /users/user/account
+- /tickets/ticket
+- /tickets/ticket/{ticketId}/status
+- /tickets?status=___
+- /tickets/user?type=___
