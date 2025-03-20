@@ -52,7 +52,6 @@ describe("updateTicketStatus", ()=>{
         };
     })
 
-
     test("should return object with success true and new ticket", async ()=>{
         ticketDAO.getTicketByTicketId.mockResolvedValue(fakeTicket)
         ticketDAO.updateTicket.mockResolvedValue(true)

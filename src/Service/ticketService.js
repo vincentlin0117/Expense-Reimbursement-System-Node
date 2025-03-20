@@ -42,7 +42,7 @@ async function getAllTicketsByUserId(userId, ticketType = null){
     
     if(tickets){
         const sortedTickets = tickets.sort((a, b) => {
-            const dateComparison = new Date(b.createdDate) - new Date(a.createdDate);
+            const dateComparison = new Date(b.createDate) - new Date(a.createDate);
             if (dateComparison !== 0) return dateComparison;
         
             const statusOrder = ['Pending', 'Approve', 'Deny'];
