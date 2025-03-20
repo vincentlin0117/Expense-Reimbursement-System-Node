@@ -42,6 +42,7 @@ project/
 - id
 - resolver
 - author
+- createDate
 - description
 - type
 - amount
@@ -72,9 +73,12 @@ project/
 - getTicketsByStatus
 - updateTicketStatus
 - getAllTicketsByUserId
+-  (maybe) updateTicketInfo
 
 ## Ticket features
 - submit ticket /ticket
 - aprrove/deny ticket /ticket/:ticketId/updateStatus
 - view all pending tickets /ticket?status=___
 - view previous tickets /ticket/user
+- (maybe) update ticket information /ticket/:ticketId/update?{type=____,description=___,amount=___}
+- sort by reimbursement type /ticket/user?type=___

@@ -4,7 +4,7 @@ const joi = require('joi')
 const submitTicket = async (req,res)=>{
     const ticketSchema = joi.object({
         description: joi.string().required(),
-        type: joi.string().required(),
+        type: joi.string().valid('Travel','Lodging','Food','Other').required(),
         amount: joi.number().min(0).required()
     })
 
@@ -48,7 +48,17 @@ const getTicketsByStatus = async (req,res) =>{
 }
 
 const getPreviousTickets = async (req,res)=>{
-    const prevTickets = await ticketService.getAllTicketsByUserId(req.locals.tokenDetail.userId)
+    const typeSchema = joi.object({
+        type: joi.string().valid('Food','Lodging', 'Other', 'Travel').optional()
+    })
+
+    const {error,value} = typeSchema.validate(req.query);
+
+    if(error){
+        return res.status(400).json({message:error.details[0].message.replace(/"/g,'')})
+    }
+    
+    const prevTickets = await ticketService.getAllTicketsByUserId(req.locals.tokenDetail.userId, value?.type)
 
     if(prevTickets.success){
         res.status(200).json(prevTickets.tickets)

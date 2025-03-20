@@ -39,7 +39,7 @@ async function getAllTicketByStatus(status) {
     }
 }
 
-async function getAllTicketsByUserId(userId) {
+async function getAllTicketsByUserId(userId, ticketType) {
     const command = new QueryCommand({
         TableName: 'Ticket',
         IndexName: 'userIdIndex',
@@ -48,6 +48,14 @@ async function getAllTicketsByUserId(userId) {
             ":userId": userId
         }
     })
+
+    if(ticketType){
+        command.FilterExpression = 'type = :ticketType';
+        command.ExpressionAttributeValues = {
+            ...command.ExpressionAttributeValues,
+            ":ticketType": ticketType
+        };
+    }
 
     try{
         return (await documentClient.send(command)).Items

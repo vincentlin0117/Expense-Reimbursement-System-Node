@@ -37,8 +37,9 @@ async function  getTicketsByStatus({status}) {
     }
 }
 
-async function getAllTicketsByUserId(userId){
-    const tickets = await ticketDAO.getAllTicketsByUserId(userId)
+async function getAllTicketsByUserId(userId, ticketType = null){
+    const tickets = await ticketDAO.getAllTicketsByUserId(userId,ticketType)
+    
     if(tickets){
         const sortedTickets = tickets.sort((a, b) => {
             const dateComparison = new Date(b.createdDate) - new Date(a.createdDate);
