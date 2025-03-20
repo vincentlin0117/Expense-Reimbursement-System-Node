@@ -104,6 +104,47 @@ const updateRole = async (req,res)=>{
     }
     
 }
+
+const updateAccount = async (req,res) =>{
+    const accountSchema = joi.object({
+        firstname: joi.string().optional(),
+        middlename: joi.string().optional(),
+        lastname: joi.string().optional(),
+        username: joi.string().optional(),
+        email: joi.string().email().optional(),
+        password: joi.string().min(8).optional(),
+        address: joi.object({
+            street: joi.string().required(),
+            city: joi.string().required(),
+            state: joi.string().length(2).uppercase().required(),
+            postalCode: joi.string().pattern(/^[0-9]{5}(-[0-9]{4})?$/).required(),
+            country: joi.string().required()
+        }).optional(),
+        picture: joi.string().uri().optional(),
+        role: joi.forbidden()
+    })
+    
+    const {error,value} = accountSchema.validate(req.body)
+
+    if(error){
+        const messages = [];
+
+        error.details.forEach(detail =>{
+            const cleanMsg = detail.message.replace(/"/g,'')
+            messages.push(cleanMsg)
+        })
+
+        return res.status(400).json({message:messages});
+    }
+    const result = await userService.updateAccount(req.locals.tokenDetail.userId, value)
+
+    if(result.success){
+        res.status(200).json({message:result.message})
+    }else{
+        res.status(result.code).json({message:result.message})
+    }
+}
+
 module.exports = {
-    login, register,updateRole
+    login, register,updateRole,updateAccount
 }

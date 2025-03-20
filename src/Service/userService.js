@@ -56,4 +56,23 @@ async function updateRole(managerId, {userId,role}) {
     }
 }
 
-module.exports = {findUserByUsernameAndPassword,createUser, findUserById, updateRole}
+async function updateAccount(userId, updateFields) {
+    if(updateFields?.password){
+        updateFields.password = await hashPassword(updateFields.password)
+    }
+    if(updateFields?.username){
+        const user = await userDAO.getUserByUsername(updateFields.username)
+        if(user){
+            return {success:false, code:400, message:"Username is taken"}
+        }
+    }
+
+    const updatedUser = await userDAO.updateUser(userId,updateFields)
+    if(updatedUser){
+        return {success:true, message:"Account Updated"}
+    }else{
+        return {success:false, code:500, message:"Update Failed"}
+    }
+}
+
+module.exports = {findUserByUsernameAndPassword,createUser, findUserById, updateRole,updateAccount}

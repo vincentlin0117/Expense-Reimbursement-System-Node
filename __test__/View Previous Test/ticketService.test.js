@@ -43,7 +43,7 @@ describe("getAllTicketsByUserId", ()=>{
         expect(result).toEqual({success:true,tickets:result.tickets})
     })
 
-    test("should return success true and a list of tickets", async ()=>{
+    test("should return success fail and a message saying failed to get tickets", async ()=>{
         ticketDAO.getAllTicketsByUserId.mockResolvedValue(null)
 
         const userId = "xyz890"
@@ -51,7 +51,7 @@ describe("getAllTicketsByUserId", ()=>{
         expect(result).toEqual({success: false, code:500, message:"Failed to get tickets"})
     })
 
-    test("should return success true and a list of tickets", async ()=>{
+    test("should return success true and a list of tickets with type = travel", async ()=>{
         ticketDAO.getAllTicketsByUserId.mockResolvedValue([fakeTicket])
 
         const userId = "xyz890"

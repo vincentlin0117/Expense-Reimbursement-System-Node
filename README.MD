@@ -52,15 +52,20 @@ project/
 - getUserByUsername
 - createUser 
 - getUserById
+- updateUser
 
 ## userService methods
 - findUserByUsernameAndPassword
 - createUser
+- findUserById
+- updateRole
+- updateAccount
 
 ## User Features
-- login in at /login
-- register/create account at /register
+- login in
+- register/create account 
 - change roles /updateRoles
+- edit account information
 
 ## ticketDAO methods
 - createTicket
@@ -74,14 +79,12 @@ project/
 - getTicketsByStatus
 - updateTicketStatus
 - getAllTicketsByUserId
--  (maybe) updateTicketInfo
 
 ## Ticket features
 - submit ticket
 - aprrove/deny ticket 
 - view all pending tickets
 - view previous tickets
-- (maybe) update ticket information /ticket/:ticketId/update?{type=____,description=___,amount=___}
 - sort by reimbursement type 
 
 
