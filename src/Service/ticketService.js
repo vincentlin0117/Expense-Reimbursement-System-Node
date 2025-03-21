@@ -69,7 +69,7 @@ async function updateTicketStatus(userId,{ticketId,status}) {
                     return {success:false, code:500, message: "Failed to update ticket"}
                 }
             }else{
-                return {success: false, code:400, message: "Cannot Approve/Deny own ticket"}
+                return {success: false, code:401, message: "Cannot Approve/Deny own ticket"}
             }
         }else{
             return {success:false, code:400, message: "Ticket status isnt Pending, cannot be change"}

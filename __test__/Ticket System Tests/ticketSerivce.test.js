@@ -127,6 +127,6 @@ describe("updateTicketStatus", ()=>{
         const ticketId = "abcd123"
 
         const result = await updateTicketStatus(userId,{ticketId,status})
-        expect(result).toEqual({success: false, code:400, message: "Cannot Approve/Deny own ticket"})
+        expect(result).toEqual({success: false, code:401, message: "Cannot Approve/Deny own ticket"})
     })
 })

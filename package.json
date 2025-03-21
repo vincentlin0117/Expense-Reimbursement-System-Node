@@ -26,7 +26,8 @@
   "jest": {
     "coveragePathIgnorePatterns": [
       "src/Repository",
-      "src/Utils"
+      "src/Utils",
+      "src/Database"
     ]
   }
 }
